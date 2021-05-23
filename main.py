@@ -1,7 +1,9 @@
+import json
+
+import synth
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import HTMLResponse
-import json
-import synth
+
 app = FastAPI()
 
 
@@ -27,12 +29,12 @@ async def websocket_endpoint(websocket: WebSocket):
 
         except KeyError:
             pass
-            #TODO:handle error
+            # TODO:handle error
 
         except json.decoder.JSONDecodeError:
             pass
-            #TODO:handle error
+            # TODO:handle error
 
         await websocket.send_text(f"Message text was: {text}")
-        print(type(wav)) # list type
+        print(type(wav))  # list type
         # await websocket.send_bytes(wav) # doesn't work yet

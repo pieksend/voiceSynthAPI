@@ -7,6 +7,7 @@ TEXT = "A list of open speech corpora for Speech Technology research and develop
 DEBUG = True
 use_cuda = False
 
+
 def synth(text="hello world."):
 
     TTS_CONFIG = "voiceModel/tts_models--en--ljspeech--tacotron2-DDC/config.json"
@@ -20,13 +21,12 @@ def synth(text="hello world."):
     vocoder_path = VOCODER_MODEL
     vocoder_config_path = VOCODER_CONFIG
 
-    synthesizer = Synthesizer(model_path, config_path,
-                              vocoder_path, vocoder_config_path, use_cuda)
+    synthesizer = Synthesizer(model_path, config_path, vocoder_path, vocoder_config_path, use_cuda)
 
     print(" > Text: {}".format(text))
 
     wav = synthesizer.tts(text)
-    
+
     if DEBUG:
         out_path = "out/1.wav"
         synthesizer.save_wav(wav, out_path)
@@ -34,5 +34,5 @@ def synth(text="hello world."):
     return wav
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     synth()
