@@ -1,0 +1,7 @@
+{
+    "text": "hello world",
+    "textToSpectrogramModel": "Tacotron2-CassieLeeMorris",
+    "vocoder": "hifi_gan",
+    "sampleRate": 22050,
+    "responseFormat": ""
+}
